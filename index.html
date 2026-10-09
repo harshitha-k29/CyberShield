@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Google SEO Meta Tags -->
+  <title>Free Scam Checker - CyberShield AI | Stay Safe Online</title>
+  <meta name="description" content="Check if an email, WhatsApp message, screenshot, or website link is a scam in seconds. Free, simple online safety tool for parents, students, and everyone.">
+  <meta name="keywords" content="check if link is safe, is this email a scam, whatsapp scam checker, check suspicious message, free scam checker, cybershield ai, online safety tool">
+  <meta name="author" content="CyberShield AI">
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free Scam Checker - CyberShield AI">
+  <meta property="og:description" content="Stay safe online. Check emails, website links, messages, and screenshots in seconds with simple advice.">
+  
+  <!-- OCR Engine for ScamVision AI (Tesseract.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       1. EMERGENCY HELPLINE BANNER
+       ====================================================================== -->
+  <div class="emergency-banner" role="alert">
+    <span>🛡️ Lost money to an online scam? Call Cyber Helpline <strong>1930</strong> immediately or report at <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a></span>
+  </div>
+
+  <!-- ======================================================================
+       2. NAVIGATION BAR
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <!-- Logo -->
+      <a href="index.html" class="brand-logo" aria-label="CyberShield AI Home">
+        <div class="brand-icon">🛡️</div>
+        <span>CyberShield <span style="color:#2563eb;">AI</span></span>
+        <span class="brand-badge">Free</span>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <!-- Navigation Links -->
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="check-email.html">Check Email</a></li>
+          <li><a href="check-link.html">Check Link</a></li>
+          <li><a href="check-message.html">Check Message</a></li>
+          <li><a href="check-screenshot.html">Check Screenshot</a></li>
+          <li><a href="blog.html">Safety Guides</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="javascript:void(0)" class="nav-cta-btn" onclick="document.getElementById('chatbotToggleBtn').click();">💬 Ask AI</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       3. HERO SECTION (HOME PAGE)
+       ====================================================================== -->
+  <main>
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-pill">
+          <span>✨ 100% Free Online Safety Tool for Everyone</span>
+        </div>
+
+        <h1 class="hero-title">Stay Safe Online - Check Scams in Seconds</h1>
+        
+        <p class="hero-subtitle">
+          Not sure if that email, WhatsApp message, screenshot, or website link is genuine? 
+          Check it here instantly. We tell you what to do in plain, simple words.
+        </p>
+
+        <!-- The 4 Main Action Tool Cards -->
+        <div class="hero-actions-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          <!-- Check Email -->
+          <a href="check-email.html" class="tool-action-card">
+            <div class="action-card-icon">✉️</div>
+            <h2 class="action-card-title">Check Email</h2>
+            <p class="action-card-desc">Paste suspicious emails or bank notices to see if they are fake.</p>
+            <span class="action-card-btn-text">Check Email &rarr;</span>
+          </a>
+
+          <!-- Check Link -->
+          <a href="check-link.html" class="tool-action-card featured">
+            <div class="action-card-icon">🔗</div>
+            <h2 class="action-card-title">Check Link</h2>
+            <p class="action-card-desc">Paste website links to find out if they steal passwords or money.</p>
+            <span class="action-card-btn-text">Check Link &rarr;</span>
+          </a>
+
+          <!-- Check Message -->
+          <a href="check-message.html" class="tool-action-card">
+            <div class="action-card-icon">💬</div>
+            <h2 class="action-card-title">Check Message</h2>
+            <p class="action-card-desc">Check WhatsApp or SMS messages for job, lottery, and bill scams.</p>
+            <span class="action-card-btn-text">Check Message &rarr;</span>
+          </a>
+
+          <!-- Check Screenshot -->
+          <a href="check-screenshot.html" class="tool-action-card">
+            <div class="action-card-icon">📸</div>
+            <h2 class="action-card-title">Check Screenshot</h2>
+            <p class="action-card-desc">Upload a photo or screenshot of any message or alert on your phone.</p>
+            <span class="action-card-btn-text">Check Screenshot &rarr;</span>
+          </a>
+        </div>
+
+        <!-- ==================================================================
+             PROMINENT FEATURE 1: SCAMVISION AI - SCREENSHOT SCAM DETECTOR
+             ================================================================== -->
+        <div class="scamvision-hero-card" id="scamvisionSection" style="margin-top: 40px;">
+          <div class="scamvision-header">
+            <div>
+              <span class="scamvision-badge">✨ New • ScamVision AI</span>
+              <h2 class="scamvision-title">Got a Suspicious Screenshot? Let’s Investigate.</h2>
+              <p class="scamvision-subtitle">
+                Upload a screenshot to discover possible scam warning signs. Works with WhatsApp chats, SMS alerts, fake job offers, and payment requests.
+              </p>
+            </div>
+            <a href="check-screenshot.html" class="btn btn-secondary" style="font-size:0.9rem;padding:8px 14px;">
+              Full Screen Mode &rarr;
+            </a>
+          </div>
+
+          <!-- Drag and Drop Upload Area -->
+          <div class="upload-dropzone" id="screenshotDropzone">
+            <input type="file" id="screenshotFileInput" accept="image/png, image/jpeg, image/jpg, image/webp" aria-label="Upload suspicious screenshot" />
+            <div class="dropzone-icon">📷</div>
+            <div class="dropzone-title">Click to upload screenshot or drag & drop here</div>
+            <div class="dropzone-desc">Supports phone screenshots, WhatsApp chats, SMS & payment alerts</div>
+            <div class="dropzone-formats">
+              <span class="format-pill">PNG</span>
+              <span class="format-pill">JPG / JPEG</span>
+              <span class="format-pill">WEBP</span>
+              <span class="format-pill">Ctrl+V to Paste</span>
+            </div>
+          </div>
+
+          <!-- Image Preview Box -->
+          <div class="screenshot-preview-container" id="screenshotPreviewContainer">
+            <img id="screenshotPreviewImg" class="screenshot-preview-img" src="" alt="Screenshot preview" />
+            <div class="preview-details">
+              <div class="preview-filename" id="screenshotFilename">screenshot.png</div>
+              <div class="preview-filesize" id="screenshotFilesize">Image loaded</div>
+            </div>
+            <div class="preview-actions">
+              <button type="button" class="replace-screenshot-btn" id="replaceScreenshotBtn">Replace</button>
+              <button type="button" class="remove-screenshot-btn" id="removeScreenshotBtn">Remove</button>
+            </div>
+          </div>
+
+          <!-- Quick Test Scenarios for Judges & Demo -->
+          <div class="samples-container">
+            <span class="samples-label">💡 Try a Sample (Judge Test Scenarios):</span>
+            <div class="sample-pills">
+              <button type="button" class="sample-pill danger-sample" data-scenario="sample-job">
+                💼 Fake Job Offer (Registration Fee)
+              </button>
+              <button type="button" class="sample-pill danger-sample" data-scenario="sample-bank-otp">
+                🏦 Fake Bank Alert (OTP Request)
+              </button>
+              <button type="button" class="sample-pill danger-sample" data-scenario="sample-prize-demand">
+                🎁 Fake Prize (Urgent Fee Demand)
+              </button>
+              <button type="button" class="sample-pill safe-sample" data-scenario="sample-safe">
+                ✅ Safe Order Delivery Notice
+              </button>
+            </div>
+          </div>
+
+          <!-- Analyze Action Button -->
+          <div style="margin-top: 20px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+            <button type="button" class="btn btn-primary btn-large" id="analyzeScreenshotBtn">
+              <span>Analyze Screenshot</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+
+          <!-- Privacy Notice -->
+          <div class="privacy-notice-box">
+            <span>🔒</span>
+            <span><strong>Privacy Notice:</strong> All screenshots are analyzed locally inside your browser using in-browser OCR. Images are never uploaded or saved to external servers. Please blur or crop personal info before uploading.</span>
+          </div>
+
+          <!-- OCR Progress Bar -->
+          <div class="ocr-progress-container" id="ocrProgressContainer">
+            <div class="ocr-progress-header">
+              <span id="ocrProgressText">Extracting text from image...</span>
+            </div>
+            <div class="ocr-progress-bar-bg">
+              <div class="ocr-progress-bar-fill" id="ocrProgressBar"></div>
+            </div>
+          </div>
+
+          <!-- Results Container -->
+          <div id="screenshotResultBox" class="result-box" role="region" aria-live="polite"></div>
+        </div>
+
+        <div class="hero-guarantee">
+          <span class="guarantee-item">🔒 No sign up required</span>
+          <span class="guarantee-item">🛡️ 100% Private In-Browser Analysis</span>
+          <span class="guarantee-item">⚡ Instant results in plain English</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. HOW IT WORKS (3 SIMPLE STEPS)
+         ====================================================================== -->
+    <section class="section section-bg-light">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-title">How CyberShield AI Works</h2>
+          <p class="section-subtitle">You do not need to be a computer expert. Staying safe is as simple as 1, 2, 3.</p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3 class="step-title">Paste or Upload</h3>
+            <p class="step-desc">Copy the suspicious text, link, or upload a screenshot directly from your phone or computer.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3 class="step-title">Instant AI Scan</h3>
+            <p class="step-desc">Our intelligent safety scanner checks for hidden scam words, fake bank tricks, and harmful links.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3 class="step-title">Get Simple Advice</h3>
+            <p class="step-desc">We give you clear, easy-to-follow directions like "Don't click this link" or "Delete this message".</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. REAL-LIFE TESTIMONIALS
+         ====================================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-title">Trusted by Thousands of Everyday People</h2>
+          <p class="section-subtitle">Real stories from parents, shop owners, and students who avoided scams.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote">"This saved me from a scam! I received a message saying my electricity would be cut off at night. CyberShield AI told me right away it was fake."</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">P</div>
+              <div>
+                <div class="author-name">Priya S.</div>
+                <div class="author-role">Homemaker, Mumbai</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote">"Someone sent me a link offering a part-time job earning ₹4,000 a day. I pasted the link here, and it warned me it was dangerous. Saved my hard-earned savings!"</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">R</div>
+              <div>
+                <div class="author-name">Rajesh Kumar</div>
+                <div class="author-role">Kirana Store Owner, Delhi</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote">"I always worry about my elderly parents falling for fake bank SMS alerts. Now they just upload a screenshot here or ask the AI Chatbot before doing anything."</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">A</div>
+              <div>
+                <div class="author-name">Anita Desai</div>
+                <div class="author-role">College Student, Bengaluru</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. FREQUENTLY ASKED QUESTIONS (SEO & USER CLARITY)
+         ====================================================================== -->
+    <section class="section section-bg-light">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Answers to common questions about scams, safe links, and online safety.</p>
+        </div>
+
+        <div class="faq-list">
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How do I check if a website link is safe?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Go to our <strong>Check Link</strong> tool and paste the web address. We check if the website is pretending to be a bank, using cheap suspicious domains, or hiding malicious software. If it is dangerous, we clearly warn you not to open it.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How can I tell if an email is a scam?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Scam emails usually try to create panic (like "Your account will be closed in 24 hours"), ask for your password or OTP, or promise unexpected lottery money. Paste the email into our <strong>Check Email</strong> tool to check it instantly.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Is CyberShield AI completely free to use?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, 100% free! There are no fees, subscriptions, or hidden charges. Our goal is to protect everyday citizens from cyber fraud.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Do you store my personal messages or emails?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>No. Your privacy is protected. Everything you paste or upload is checked directly in your browser. We do not store, read, or sell your private messages or emails.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>What should I do if I already clicked a scam link?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Close the tab immediately. If you entered a password, change it right away from another device. If you entered your bank details or OTP, call your bank helpline immediately to freeze your account, and dial <strong>1930</strong> (National Cyber Crime Helpline).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       7. FLOATING AI SAFETY CHATBOT WIDGET (ASK CYBERSHIELD)
+       ====================================================================== -->
+  <div class="chatbot-widget-container">
+    <button class="chatbot-toggle-btn" id="chatbotToggleBtn" aria-label="Open CyberShield AI Assistant">
+      <span class="chatbot-shield-icon">🛡️</span>
+      <span>Ask CyberShield</span>
+    </button>
+
+    <div class="chatbot-window" id="chatbotWindow">
+      <!-- Chat Header -->
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar">🛡️</div>
+          <div>
+            <div class="chat-header-title">CyberShield AI</div>
+            <div class="chat-header-subtitle">Your Personal Safety Guide • Demo Mode</div>
+          </div>
+        </div>
+        <div class="chat-header-actions">
+          <button class="chat-action-icon-btn" id="chatbotResetBtn" title="Reset chat conversation">🔄</button>
+          <button class="chat-action-icon-btn" id="chatbotCloseBtn" title="Close chat">&times;</button>
+        </div>
+      </div>
+
+      <!-- Chat Messages Container -->
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+          👋 Hi! I’m <strong>CyberShield</strong>, your online safety assistant. Received a suspicious message? Need help with a link or payment request? Tell me what happened, and I’ll help you understand the warning signs.
+        </div>
+      </div>
+
+      <!-- Quick Question Suggestion Chips -->
+      <div class="chat-suggestions">
+        <button class="chat-chip">Is this message a scam?</button>
+        <button class="chat-chip">I clicked a suspicious link. What now?</button>
+        <button class="chat-chip">Someone is asking for my OTP.</button>
+        <button class="chat-chip">I paid a fake job registration fee.</button>
+        <button class="chat-chip">How can I report online fraud?</button>
+        <button class="chat-chip">Explain this screenshot.</button>
+      </div>
+
+      <!-- Chat Input Area -->
+      <div class="chat-input-area">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Ask CyberShield anything..." aria-label="Ask CyberShield anything" />
+        <button class="chat-send-btn" id="chatSendBtn" aria-label="Send message">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       8. FOOTER
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Info -->
+        <div>
+          <div class="footer-brand-title">🛡️ CyberShield AI</div>
+          <p class="footer-desc">
+            A free community safety initiative dedicated to protecting regular families, students, and elders from online fraud.
+          </p>
+          <div class="helpline-box">
+            <div>National Cyber Crime Helpline (India):</div>
+            <div class="helpline-number">📞 1930</div>
+            <div style="font-size:0.85rem;color:#94a3b8;">Available 24x7. Report fraud immediately.</div>
+          </div>
+        </div>
+
+        <!-- Quick Tools -->
+        <div>
+          <div class="footer-heading">Free Tools</div>
+          <ul class="footer-links">
+            <li><a href="check-email.html">Check Email</a></li>
+            <li><a href="check-link.html">Check Website Link</a></li>
+            <li><a href="check-message.html">Check WhatsApp / SMS</a></li>
+            <li><a href="check-screenshot.html">Check Screenshot</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <div class="footer-heading">Safety Guides</div>
+          <ul class="footer-links">
+            <li><a href="blog.html">5 Signs of a Scam Message</a></li>
+            <li><a href="blog.html">Protect Your Bank Account</a></li>
+            <li><a href="blog.html">What to Do After Clicking a Link</a></li>
+            <li><a href="about.html">About Our Mission</a></li>
+          </ul>
+        </div>
+
+        <!-- Simple Disclaimer -->
+        <div>
+          <div class="footer-heading">Your Privacy</div>
+          <p class="footer-desc">
+            All checks run privately in your browser. We never log or store what you type.
+          </p>
+          <p class="footer-desc" style="font-size:0.82rem; color:#64748b;">
+            Disclaimer: CyberShield AI provides helpful guidance but cannot replace official bank or law enforcement investigations.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 CyberShield AI. Made with care to keep everyone safe online.</div>
+        <div>Free • Private • Simple</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/scanner.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Check WhatsApp & SMS Message for Scam - CyberShield AI</title>
+  <meta name="description" content="Check if a WhatsApp or SMS text message is a scam. Free scanner for electricity bill threats, fake job offers, and lottery messages.">
+  <meta name="keywords" content="check message for scam, whatsapp scam checker, sms fraud detector, fake electricity bill message, part time job scam checker">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Helpline Banner -->
+  <div class="emergency-banner" role="alert">
+    <span>🛡️ Lost money to an online scam? Call Cyber Helpline <strong>1930</strong> immediately or report at <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a></span>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">🛡️</div>
+        <span>CyberShield <span style="color:#2563eb;">AI</span></span>
+        <span class="brand-badge">Free</span>
+      </a>
+
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="check-email.html">Check Email</a></li>
+          <li><a href="check-link.html">Check Link</a></li>
+          <li><a href="check-message.html" class="active">Check Message</a></li>
+          <li><a href="check-screenshot.html">Check Screenshot</a></li>
+          <li><a href="blog.html">Safety Guides</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="javascript:void(0)" class="nav-cta-btn" onclick="document.getElementById('chatbotToggleBtn').click();">💬 Ask CyberShield</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Scanner Content -->
+  <main class="container-narrow">
+    <section class="scanner-page-header">
+      <span class="scanner-badge">WhatsApp & SMS Tool</span>
+      <h1 class="scanner-page-title">Check WhatsApp or SMS for Scams</h1>
+      <p class="scanner-page-desc">
+        Did an unknown number send you a message on WhatsApp or SMS? Paste the text below to find out if scammers are trying to steal your money.
+      </p>
+    </section>
+
+    <!-- Scanner Box Card -->
+    <div class="scanner-card">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+        <label for="scannerInput" class="input-label">Paste the WhatsApp or SMS message here:</label>
+        <a href="check-screenshot.html" style="font-size:0.95rem;font-weight:700;">📸 Have a screenshot instead? Click here</a>
+      </div>
+      <p class="input-helper">Paste the full text message, job offer, lottery message, or bill reminder.</p>
+
+      <!-- Text Box for Messages -->
+      <textarea 
+        id="scannerInput" 
+        class="scanner-textarea" 
+        placeholder="Example: 'Dear consumer, your electricity power will be disconnected tonight at 9:30 PM because your previous month bill was not updated. Please contact electricity officer immediately at 9876543210...'"></textarea>
+
+      <!-- Quick 1-Click Samples for Easy Testing -->
+      <div class="samples-container">
+        <span class="samples-label">💡 Or try a test example with 1 click:</span>
+        <div class="sample-pills">
+          <button class="sample-pill danger-sample" data-sample="Dear Consumer, Your Electricity power will be disconnected tonight at 9.30 PM from electricity office because your previous month bill was not updated. Please immediately contact with our electricity officer 9876543210. Thank you.">
+            🚨 Fake Electricity Power Cut
+          </button>
+          <button class="sample-pill danger-sample" data-sample="Hello! We have an online part-time job offer. Earn Rs 2000 to Rs 5000 daily from home just by liking YouTube videos and rating hotels on Google. No experience required. Message our Telegram HR now!">
+            ⚠️ Fake YouTube Job Offer
+          </button>
+          <button class="sample-pill danger-sample" data-sample="Congratulations! Your mobile number won 25 Lakh in KBC Kaun Banega Crorepati WhatsApp Lucky Draw! Contact Lottery Manager Rana Pratap Singh on WhatsApp to claim your prize money.">
+            🚨 Fake KBC Lottery Scam
+          </button>
+          <button class="sample-pill safe-sample" data-sample="Your package from Amazon is out for delivery with our delivery associate. Please share OTP 4921 only when the package is handed over at your doorstep.">
+            ✅ Safe Delivery OTP Alert
+          </button>
+        </div>
+      </div>
+
+      <!-- Controls: "Check for Scam" Button -->
+      <div class="scanner-controls">
+        <button id="checkNowBtn" class="btn btn-primary btn-large">
+          <span>Check for Scam</span>
+          <span>&rarr;</span>
+        </button>
+
+        <button id="clearInputBtn" class="clear-btn">Clear message</button>
+      </div>
+
+      <!-- Result Container (Populated by JavaScript) -->
+      <div id="resultBox" class="result-box" role="region" aria-live="polite"></div>
+    </div>
+
+    <!-- Simple Advice Guide Below Scanner -->
+    <div class="article-tip-box" style="margin-bottom: 50px;">
+      <h3 style="font-size:1.2rem;margin-bottom:8px;color:#1e40af;">💡 Two Golden Rules for WhatsApp & SMS:</h3>
+      <ul style="padding-left: 20px; line-height: 1.6;">
+        <li><strong>Never enter your UPI PIN to receive money:</strong> Scammers claim they are sending you money and ask you to enter your UPI PIN. UPI PIN is ONLY entered when money leaves your bank account!</li>
+        <li><strong>Official companies don't message from random 10-digit numbers:</strong> Real power companies, banks, and couriers use branded sender names (like VK-SBI, AX-HDFC, AD-BESCOM), not random personal mobile numbers.</li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Floating AI Chatbot Widget (Ask CyberShield) -->
+  <div class="chatbot-widget-container">
+    <button class="chatbot-toggle-btn" id="chatbotToggleBtn" aria-label="Open CyberShield AI Assistant">
+      <span class="chatbot-shield-icon">🛡️</span>
+      <span>Ask CyberShield</span>
+    </button>
+
+    <div class="chatbot-window" id="chatbotWindow">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar">🛡️</div>
+          <div>
+            <div class="chat-header-title">CyberShield AI</div>
+            <div class="chat-header-subtitle">Your Personal Safety Guide • Demo Mode</div>
+          </div>
+        </div>
+        <div class="chat-header-actions">
+          <button class="chat-action-icon-btn" id="chatbotResetBtn" title="Reset chat conversation">🔄</button>
+          <button class="chat-action-icon-btn" id="chatbotCloseBtn" title="Close chat">&times;</button>
+        </div>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+          👋 Hi! I’m <strong>CyberShield</strong>, your online safety assistant. Received a suspicious message? Need help with a link or payment request? Tell me what happened, and I’ll help you understand the warning signs.
+        </div>
+      </div>
+
+      <div class="chat-suggestions">
+        <button class="chat-chip">Is this message a scam?</button>
+        <button class="chat-chip">I clicked a suspicious link. What now?</button>
+        <button class="chat-chip">Someone is asking for my OTP.</button>
+        <button class="chat-chip">I paid a fake job registration fee.</button>
+        <button class="chat-chip">How can I report online fraud?</button>
+        <button class="chat-chip">Explain this screenshot.</button>
+      </div>
+
+      <div class="chat-input-area">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Ask CyberShield anything..." aria-label="Ask CyberShield anything" />
+        <button class="chat-send-btn" id="chatSendBtn" aria-label="Send message">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">🛡️ CyberShield AI</div>
+          <p class="footer-desc">
+            A free community safety initiative dedicated to protecting regular families, students, and elders from online fraud.
+          </p>
+          <div class="helpline-box">
+            <div>National Cyber Crime Helpline:</div>
+            <div class="helpline-number">📞 1930</div>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Tools</div>
+          <ul class="footer-links">
+            <li><a href="check-email.html">Check Email</a></li>
+            <li><a href="check-link.html">Check Website Link</a></li>
+            <li><a href="check-message.html">Check WhatsApp / SMS</a></li>
+            <li><a href="check-screenshot.html">Check Screenshot</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Resources</div>
+          <ul class="footer-links">
+            <li><a href="blog.html">Scam Protection Guides</a></li>
+            <li><a href="about.html">About Our Mission</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Privacy First</div>
+          <p class="footer-desc">Messages checked are processed 100% locally in your browser. We never read or store your chats.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 CyberShield AI. Made with care for everyone.</div>
+        <div>Free • Private • Simple</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/scanner.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script>
+    // Wire up Message Scanner Button
+    document.getElementById('checkNowBtn').addEventListener('click', function() {
+      const input = document.getElementById('scannerInput').value;
+      const resultBox = document.getElementById('resultBox');
+      
+      // Analyze message
+      const analysis = analyzeMessage(input);
+      
+      // Render result
+      renderScanResult(resultBox, analysis);
+    });
+  </script>
+</body>
+</html>

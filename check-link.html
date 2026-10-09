@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags for Google -->
+  <title>Check If Link is Safe - Free URL Safety Checker | CyberShield AI</title>
+  <meta name="description" content="Check if a website link is safe before clicking. Free link scanner to spot phishing websites, fake bank portals, and dangerous scams.">
+  <meta name="keywords" content="check if link is safe, is this link safe, safe link checker, scam link detector, check url for phishing, check website safety">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Helpline Banner -->
+  <div class="emergency-banner" role="alert">
+    <span>🛡️ Lost money to an online scam? Call Cyber Helpline <strong>1930</strong> immediately or report at <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a></span>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">🛡️</div>
+        <span>CyberShield <span style="color:#2563eb;">AI</span></span>
+        <span class="brand-badge">Free</span>
+      </a>
+
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="check-email.html">Check Email</a></li>
+          <li><a href="check-link.html" class="active">Check Link</a></li>
+          <li><a href="check-message.html">Check Message</a></li>
+          <li><a href="check-screenshot.html">Check Screenshot</a></li>
+          <li><a href="blog.html">Safety Guides</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="javascript:void(0)" class="nav-cta-btn" onclick="document.getElementById('chatbotToggleBtn').click();">💬 Ask CyberShield</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Scanner Content -->
+  <main class="container-narrow">
+    <section class="scanner-page-header">
+      <span class="scanner-badge">Link Safety Tool</span>
+      <h1 class="scanner-page-title">Check If a Website Link is Safe</h1>
+      <p class="scanner-page-desc">
+        Someone sent you a web link on WhatsApp, SMS, or email? Before you tap it, paste it here to check if it leads to a dangerous fake website.
+      </p>
+    </section>
+
+    <!-- Scanner Box Card -->
+    <div class="scanner-card">
+      <label for="scannerInput" class="input-label">Paste the website link (URL) here:</label>
+      <p class="input-helper">Example: https://sbi-online-kyc-update.xyz or http://192.168.1.1/login</p>
+
+      <!-- Input Text Box for Links -->
+      <input 
+        type="text" 
+        id="scannerInput" 
+        class="scanner-input-text" 
+        placeholder="Paste link here (e.g., https://example.com/offer)" />
+
+      <!-- Quick 1-Click Samples for Easy Testing -->
+      <div class="samples-container">
+        <span class="samples-label">💡 Or try a test example with 1 click:</span>
+        <div class="sample-pills">
+          <button class="sample-pill danger-sample" data-sample="https://sbi-bank-login-secure-kyc.xyz/update">
+            ⚠️ Fake SBI Bank Link
+          </button>
+          <button class="sample-pill danger-sample" data-sample="http://paytm-cashback-reward-claim.top/spin-wheel">
+            🚨 Fake Cashback Link
+          </button>
+          <button class="sample-pill danger-sample" data-sample="http://192.168.10.45/login-account">
+            🚨 Dangerous IP Address Link
+          </button>
+          <button class="sample-pill safe-sample" data-sample="https://www.wikipedia.org">
+            ✅ Safe Official Website
+          </button>
+        </div>
+      </div>
+
+      <!-- Controls: "Is This Link Safe?" Button -->
+      <div class="scanner-controls">
+        <button id="checkNowBtn" class="btn btn-primary btn-large">
+          <span>Is This Link Safe?</span>
+          <span>&rarr;</span>
+        </button>
+
+        <button id="clearInputBtn" class="clear-btn">Clear link</button>
+      </div>
+
+      <!-- Result Container (Populated by JavaScript) -->
+      <div id="resultBox" class="result-box" role="region" aria-live="polite"></div>
+    </div>
+
+    <!-- Simple Advice Guide Below Scanner -->
+    <div class="article-tip-box" style="margin-bottom: 50px;">
+      <h3 style="font-size:1.2rem;margin-bottom:8px;color:#1e40af;">💡 How Scammers Trick People with Links:</h3>
+      <ul style="padding-left: 20px; line-height: 1.6;">
+        <li><strong>Faking Bank Names:</strong> Scammers buy cheap domains like <em>sbi-bank-update.xyz</em> or <em>hdfc-kyc-portal.top</em> to make you think it's your real bank.</li>
+        <li><strong>Look at the Ending (.xyz, .top, .buzz):</strong> Real banks always use official domains like <em>.com</em>, <em>.co.in</em>, or <em>.org</em>. They never use strange endings.</li>
+        <li><strong>Never type passwords on links from WhatsApp:</strong> Always open your banking app directly from your phone's home screen.</li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Floating AI Chatbot Widget (Ask CyberShield) -->
+  <div class="chatbot-widget-container">
+    <button class="chatbot-toggle-btn" id="chatbotToggleBtn" aria-label="Open CyberShield AI Assistant">
+      <span class="chatbot-shield-icon">🛡️</span>
+      <span>Ask CyberShield</span>
+    </button>
+
+    <div class="chatbot-window" id="chatbotWindow">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar">🛡️</div>
+          <div>
+            <div class="chat-header-title">CyberShield AI</div>
+            <div class="chat-header-subtitle">Your Personal Safety Guide • Demo Mode</div>
+          </div>
+        </div>
+        <div class="chat-header-actions">
+          <button class="chat-action-icon-btn" id="chatbotResetBtn" title="Reset chat conversation">🔄</button>
+          <button class="chat-action-icon-btn" id="chatbotCloseBtn" title="Close chat">&times;</button>
+        </div>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+          👋 Hi! I’m <strong>CyberShield</strong>, your online safety assistant. Received a suspicious message? Need help with a link or payment request? Tell me what happened, and I’ll help you understand the warning signs.
+        </div>
+      </div>
+
+      <div class="chat-suggestions">
+        <button class="chat-chip">Is this message a scam?</button>
+        <button class="chat-chip">I clicked a suspicious link. What now?</button>
+        <button class="chat-chip">Someone is asking for my OTP.</button>
+        <button class="chat-chip">I paid a fake job registration fee.</button>
+        <button class="chat-chip">How can I report online fraud?</button>
+        <button class="chat-chip">Explain this screenshot.</button>
+      </div>
+
+      <div class="chat-input-area">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Ask CyberShield anything..." aria-label="Ask CyberShield anything" />
+        <button class="chat-send-btn" id="chatSendBtn" aria-label="Send message">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">🛡️ CyberShield AI</div>
+          <p class="footer-desc">
+            A free community safety initiative dedicated to protecting regular families, students, and elders from online fraud.
+          </p>
+          <div class="helpline-box">
+            <div>National Cyber Crime Helpline:</div>
+            <div class="helpline-number">📞 1930</div>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Tools</div>
+          <ul class="footer-links">
+            <li><a href="check-email.html">Check Email</a></li>
+            <li><a href="check-link.html">Check Website Link</a></li>
+            <li><a href="check-message.html">Check WhatsApp / SMS</a></li>
+            <li><a href="check-screenshot.html">Check Screenshot</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Resources</div>
+          <ul class="footer-links">
+            <li><a href="blog.html">Scam Protection Guides</a></li>
+            <li><a href="about.html">About Our Mission</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Privacy First</div>
+          <p class="footer-desc">Links checked are never stored on any server. 100% private in your browser.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 CyberShield AI. Made with care for everyone.</div>
+        <div>Free • Private • Simple</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/scanner.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script>
+    // Wire up Link Scanner Button
+    document.getElementById('checkNowBtn').addEventListener('click', function() {
+      const input = document.getElementById('scannerInput').value;
+      const resultBox = document.getElementById('resultBox');
+      
+      // Analyze the link with our detection engine
+      const analysis = analyzeLink(input);
+      
+      // Render the result
+      renderScanResult(resultBox, analysis);
+    });
+  </script>
+</body>
+</html>

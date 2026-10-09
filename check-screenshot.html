@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>ScamVision AI - Check Screenshot for Scams | CyberShield AI</title>
+  <meta name="description" content="Upload a photo or screenshot of any WhatsApp message, SMS, fake job offer, or payment request to discover scam warning signs with browser OCR. Free, instant image safety scanner.">
+  <meta name="keywords" content="check screenshot for scam, scam vision ai, scam image detector, check whatsapp screenshot, check fake bill image, screenshot fraud scanner, ocr scam detector">
+  
+  <!-- OCR Engine for ScamVision AI (Tesseract.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Helpline Banner -->
+  <div class="emergency-banner" role="alert">
+    <span>🛡️ Lost money to an online scam? Call Cyber Helpline <strong>1930</strong> immediately or report at <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a></span>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="CyberShield AI Home">
+        <div class="brand-icon">🛡️</div>
+        <span>CyberShield <span style="color:#2563eb;">AI</span></span>
+        <span class="brand-badge">Free</span>
+      </a>
+
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="check-email.html">Check Email</a></li>
+          <li><a href="check-link.html">Check Link</a></li>
+          <li><a href="check-message.html">Check Message</a></li>
+          <li><a href="check-screenshot.html" class="active">Check Screenshot</a></li>
+          <li><a href="blog.html">Safety Guides</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="javascript:void(0)" class="nav-cta-btn" onclick="document.getElementById('chatbotToggleBtn').click();">💬 Ask CyberShield</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Scanner Content -->
+  <main class="container-narrow">
+    <section class="scanner-page-header">
+      <span class="scanner-badge">📸 ScamVision AI • Screenshot Scam Detector</span>
+      <h1 class="scanner-page-title">Got a Suspicious Screenshot? Let’s Investigate.</h1>
+      <p class="scanner-page-desc">
+        Upload a screenshot to discover possible scam warning signs. ScamVision AI extracts text directly in your browser using optical character recognition (OCR) and highlights critical fraud indicators in plain English.
+      </p>
+    </section>
+
+    <!-- Scanner Box Card -->
+    <div class="scanner-card">
+      <label class="input-label" for="screenshotFileInput">Upload or Paste your Screenshot:</label>
+      <p class="input-helper">Supports PNG, JPG, JPEG, and WEBP screenshots or press Ctrl+V to paste from clipboard.</p>
+
+      <!-- Drag & Drop / File Input Box -->
+      <div class="upload-dropzone" id="screenshotDropzone">
+        <input type="file" id="screenshotFileInput" accept="image/png, image/jpeg, image/jpg, image/webp" aria-label="Upload suspicious screenshot" />
+        <div class="dropzone-icon">📷</div>
+        <div class="dropzone-title">Click to choose a screenshot or drag & drop here</div>
+        <div class="dropzone-desc">Supports phone screenshots, WhatsApp chats, SMS alerts & posters</div>
+        <div class="dropzone-formats">
+          <span class="format-pill">PNG</span>
+          <span class="format-pill">JPG / JPEG</span>
+          <span class="format-pill">WEBP</span>
+          <span class="format-pill">Ctrl+V to Paste</span>
+        </div>
+      </div>
+
+      <!-- Selected Screenshot Preview Box -->
+      <div class="screenshot-preview-container" id="screenshotPreviewContainer">
+        <img id="screenshotPreviewImg" class="screenshot-preview-img" src="" alt="Screenshot Preview" />
+        <div class="preview-details">
+          <div class="preview-filename" id="screenshotFilename">screenshot.png</div>
+          <div class="preview-filesize" id="screenshotFilesize">Ready to analyze</div>
+        </div>
+        <div class="preview-actions">
+          <button type="button" class="replace-screenshot-btn" id="replaceScreenshotBtn">Replace Image</button>
+          <button type="button" class="remove-screenshot-btn" id="removeScreenshotBtn">Remove</button>
+        </div>
+      </div>
+
+      <!-- Quick 1-Click Sample Screenshots for Demonstration & Judges -->
+      <div class="samples-container">
+        <span class="samples-label">💡 Try a Sample (Judge Test Scenarios):</span>
+        <div class="sample-pills">
+          <button type="button" class="sample-pill danger-sample" data-scenario="sample-job">
+            💼 Fake Job Offer (Registration Fee)
+          </button>
+          <button type="button" class="sample-pill danger-sample" data-scenario="sample-bank-otp">
+            🏦 Fake Bank Alert (OTP Request)
+          </button>
+          <button type="button" class="sample-pill danger-sample" data-scenario="sample-prize-demand">
+            🎁 Fake Prize (Urgent Fee Demand)
+          </button>
+          <button type="button" class="sample-pill safe-sample" data-scenario="sample-safe">
+            ✅ Safe Order Delivery Notice
+          </button>
+        </div>
+      </div>
+
+      <!-- Controls: Scan Button -->
+      <div class="scanner-controls" style="margin-top: 22px;">
+        <button id="analyzeScreenshotBtn" class="btn btn-primary btn-large">
+          <span>Analyze Screenshot</span>
+          <span>&rarr;</span>
+        </button>
+      </div>
+
+      <!-- Privacy Notice Box -->
+      <div class="privacy-notice-box">
+        <span>🔒</span>
+        <span><strong>Privacy First:</strong> Screenshots are processed 100% inside your browser using client-side OCR. Images are never uploaded or saved to external servers. Please mask personal information before uploading.</span>
+      </div>
+
+      <!-- OCR Progress Bar -->
+      <div class="ocr-progress-container" id="ocrProgressContainer">
+        <div class="ocr-progress-header">
+          <span id="ocrProgressText">Starting ScamVision AI...</span>
+        </div>
+        <div class="ocr-progress-bar-bg">
+          <div class="ocr-progress-bar-fill" id="ocrProgressBar"></div>
+        </div>
+      </div>
+
+      <!-- Result Container (Populated by JavaScript) -->
+      <div id="screenshotResultBox" class="result-box" role="region" aria-live="polite"></div>
+    </div>
+
+    <!-- Advice Guide Below Scanner -->
+    <div class="article-tip-box" style="margin-bottom: 50px;">
+      <h3 style="font-size:1.2rem;margin-bottom:8px;color:#1e40af;">💡 Why Scammers Use Images & Screenshots:</h3>
+      <ul style="padding-left: 20px; line-height: 1.6;">
+        <li><strong>Bypassing Text Spam Filters:</strong> Fraudsters often share posters or images on WhatsApp because basic SMS/chat filters look for typed text.</li>
+        <li><strong>Fake Official Logos:</strong> They overlay logos of State Bank of India, HDFC, or Kaun Banega Crorepati onto fake certificates to trick unsuspecting victims.</li>
+        <li><strong>Advance Fee Traps:</strong> Almost all screenshot scams demand an upfront "registration fee", "processing fee", or "customs duty" before releasing non-existent funds.</li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Floating AI Chatbot Widget (Ask CyberShield) -->
+  <div class="chatbot-widget-container">
+    <button class="chatbot-toggle-btn" id="chatbotToggleBtn" aria-label="Open CyberShield AI Assistant">
+      <span class="chatbot-shield-icon">🛡️</span>
+      <span>Ask CyberShield</span>
+    </button>
+
+    <div class="chatbot-window" id="chatbotWindow">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar">🛡️</div>
+          <div>
+            <div class="chat-header-title">CyberShield AI</div>
+            <div class="chat-header-subtitle">Your Personal Safety Guide • Demo Mode</div>
+          </div>
+        </div>
+        <div class="chat-header-actions">
+          <button class="chat-action-icon-btn" id="chatbotResetBtn" title="Reset chat conversation">🔄</button>
+          <button class="chat-action-icon-btn" id="chatbotCloseBtn" title="Close chat">&times;</button>
+        </div>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+          👋 Hi! I’m <strong>CyberShield</strong>, your online safety assistant. Received a suspicious message? Need help with a link or payment request? Tell me what happened, and I’ll help you understand the warning signs.
+        </div>
+      </div>
+
+      <div class="chat-suggestions">
+        <button class="chat-chip">Is this message a scam?</button>
+        <button class="chat-chip">I clicked a suspicious link. What now?</button>
+        <button class="chat-chip">Someone is asking for my OTP.</button>
+        <button class="chat-chip">I paid a fake job registration fee.</button>
+        <button class="chat-chip">How can I report online fraud?</button>
+        <button class="chat-chip">Explain this screenshot.</button>
+      </div>
+
+      <div class="chat-input-area">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Ask CyberShield anything..." aria-label="Ask CyberShield anything" />
+        <button class="chat-send-btn" id="chatSendBtn" aria-label="Send message">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">🛡️ CyberShield AI</div>
+          <p class="footer-desc">
+            A free community safety initiative dedicated to protecting regular families, students, and elders from online fraud.
+          </p>
+          <div class="helpline-box">
+            <div>National Cyber Crime Helpline:</div>
+            <div class="helpline-number">📞 1930</div>
+            <div style="font-size:0.85rem;color:#94a3b8;">Available 24x7. Report fraud immediately.</div>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Tools</div>
+          <ul class="footer-links">
+            <li><a href="check-email.html">Check Email</a></li>
+            <li><a href="check-link.html">Check Website Link</a></li>
+            <li><a href="check-message.html">Check WhatsApp / SMS</a></li>
+            <li><a href="check-screenshot.html">Check Screenshot</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Resources</div>
+          <ul class="footer-links">
+            <li><a href="blog.html">Scam Protection Guides</a></li>
+            <li><a href="about.html">About Our Mission</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Privacy First</div>
+          <p class="footer-desc">Screenshots stay inside your device. They are never uploaded or saved to external servers.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 CyberShield AI. Made with care for everyone.</div>
+        <div>Free • Private • Simple</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/scanner.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>
